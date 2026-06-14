@@ -4,14 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Michael Davidson</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
-  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
-  <script>
-    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-    formspree('initForm', { formElement: '#contact-form', formId: 'mrevovlo' });
-  </script>
+  <meta name="description" content="Michael Davidson — Investor, entrepreneur, author of The Waking, and host of The Michael Davidson Podcast. Helping people master the 7 areas of life.">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -23,7 +16,7 @@
       --text:    #f0f0f0;
       --muted:   #8a8f9e;
       --border:  rgba(255,255,255,0.08);
-      --font:    'Inter', system-ui, sans-serif;
+      --font:    -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     }
 
     html { scroll-behavior: smooth; }
@@ -83,7 +76,6 @@
       padding: 5rem 2.5rem;
       border-bottom: 1px solid var(--border);
     }
-    .hero-text {}
     .hero-eyebrow {
       font-size: 12px;
       font-weight: 600;
@@ -125,7 +117,6 @@
     }
     .btn-primary:hover { opacity: 0.85; }
 
-    /* Photo placeholder */
     .hero-photo-wrap {
       display: flex;
       justify-content: center;
@@ -136,14 +127,6 @@
       max-width: 420px;
       aspect-ratio: 4/5;
       border-radius: 8px;
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      color: var(--muted);
       overflow: hidden;
       position: relative;
     }
@@ -153,23 +136,6 @@
       object-fit: cover;
       display: block;
       border-radius: 8px;
-    }
-    .photo-placeholder {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.75rem;
-      color: var(--muted);
-    }
-    .photo-placeholder svg {
-      width: 56px;
-      height: 56px;
-      stroke: var(--muted);
-      opacity: 0.4;
-    }
-    .photo-placeholder p {
-      font-size: 13px;
-      opacity: 0.5;
     }
 
     /* ── ABOUT ── */
@@ -220,9 +186,7 @@
       line-height: 1.7;
       margin-bottom: 2.5rem;
     }
-    .form-group {
-      margin-bottom: 1.25rem;
-    }
+    .form-group { margin-bottom: 1.25rem; }
     label {
       display: block;
       font-size: 12px;
@@ -259,9 +223,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
     }
-    .form-submit {
-      margin-top: 1.75rem;
-    }
+    .form-submit { margin-top: 1.75rem; }
     .success-msg {
       display: none;
       background: rgba(47,216,168,0.1);
@@ -312,11 +274,6 @@
       footer { padding: 1.5rem 1.25rem; }
     }
 
-    .captcha-note {
-      font-size: 11px;
-      color: rgba(138,143,158,0.45);
-      margin-top: 0.4rem;
-    }
     .captcha-error {
       display: none;
       font-size: 13px;
@@ -347,16 +304,14 @@
       <a href="#contact" class="btn-primary">Get in touch</a>
     </div>
     <div class="hero-photo-wrap">
-      <div class="hero-photo" id="photo-container">
-        <!-- To add your photo: replace the div below with:
-             <img src="your-photo.jpg" alt="Michael Davidson">
-             and remove the photo-placeholder div -->
-        <img src="michael.jpg" alt="Michael Davidson">
+      <div class="hero-photo">
+        <img src="michael.webp" alt="Michael Davidson" width="420" height="525" loading="eager" fetchpriority="high">
       </div>
     </div>
   </section>
 
   <!-- ABOUT -->
+  <main>
   <section class="about" id="about">
     <div class="about-inner">
       <div class="section-label">About me</div>
@@ -391,20 +346,20 @@
         <div class="form-row">
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required data-fs-field>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
           </div>
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" required data-fs-field>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required>
           </div>
         </div>
         <div class="form-group">
           <label for="subject">Subject</label>
-          <input type="text" id="subject" name="subject" placeholder="What's this about?" data-fs-field>
+          <input type="text" id="subject" name="subject" placeholder="What's this about?">
         </div>
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Your message..." required data-fs-field></textarea>
+          <textarea id="message" name="message" placeholder="Your message..." required></textarea>
         </div>
         <div class="form-group" style="margin-top:0.25rem;">
           <div class="h-captcha"
@@ -413,32 +368,48 @@
         </div>
         <div class="captcha-error" id="captcha-error">Please complete the captcha before sending.</div>
         <div class="form-submit">
-          <button type="submit" class="btn-primary" data-fs-submit-btn>Send message</button>
+          <button type="submit" class="btn-primary">Send message</button>
         </div>
-        <div data-fs-success class="success-msg">Message sent! I'll get back to you soon.</div>
-        <div data-fs-error class="captcha-error" style="margin-top:0.75rem;"></div>
+        <div class="success-msg" id="success-msg">Message sent! I'll get back to you soon.</div>
       </form>
     </div>
   </section>
+  </main>
 
   <footer>
     <div class="footer-name">Michael <span>Davidson</span></div>
     <div class="footer-copy">&copy; 2026 Michael Davidson</div>
   </footer>
 
+  <!-- Scripts deferred to end of body for faster load -->
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
   <script>
     const form = document.getElementById('contact-form');
     const captchaError = document.getElementById('captcha-error');
+    const successMsg = document.getElementById('success-msg');
 
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
       const captchaResponse = hcaptcha.getResponse();
       if (!captchaResponse) {
-        e.preventDefault();
-        e.stopPropagation();
         captchaError.style.display = 'block';
         return;
       }
       captchaError.style.display = 'none';
+
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        form.reset();
+        hcaptcha.reset();
+        successMsg.style.display = 'block';
+      }
     });
   </script>
 
